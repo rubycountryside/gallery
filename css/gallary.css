@@ -1,0 +1,159 @@
+html,body{height:100%;}
+*{margin: 0; padding: 0px;}
+
+body{
+	background: black;
+}
+
+.wrapper{
+	width: 100%;
+	height: 100%;
+}
+
+.wrapper .top{
+	position: fixed;
+	top: 0px;
+	height: 60px;
+	width: 100%;
+	background-color:  rgba(63, 66, 67, 0.6); 
+	z-index: 999;
+	color: white;
+}
+
+.wrapper .content img{
+	width: 100%;
+	height: 100%; /*记住缩放比例得填坑！！*/
+}
+
+.wrapper .scroller{
+	position: fixed;
+	bottom: 0px;
+	height: 170px;
+	width: 100%;
+	background-color:  rgba(63, 66, 67, 0.6); 
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+.wrapper .scroller .movScroller{
+	position: absolute;		      /*为平移做准备,太重要，不能省略*/
+	height: 100%;
+	width: 100%;
+}
+
+.wrapper .scroller .movScroller .scrItems{
+	position: relative;
+	float: left;
+	margin: 10px 10px;
+	opacity: 0.6;
+	border: 4px solid white;
+}
+
+.wrapper .scroller .movScroller .scrItems:hover{
+	opacity: 1;
+}
+.nextImageBtn, .prevImageBtn{
+	display:block; 
+	float: left;
+	position:absolute; 
+	width:60px; 
+	height:60px; 
+	border-radius: 50%;
+	top:50%; 
+	margin:-50px 35px; 
+	z-index:999; 
+	opacity:0.4;
+	border: 2px solid rgba(249,249,249,0.6);
+}
+
+.nextImageBtn{
+	right:0; 
+	background:url(../img/nextImgBtn.png) center center no-repeat;
+}
+.prevImageBtn{
+	background:url(../img/prevImgBtn.png) center center no-repeat;
+}
+
+.nextImageBtn:hover,.prevImageBtn:hover{
+	background-color: rgba(63, 66, 67, 0.8);
+	box-shadow: 0px 0px 20px #888888;
+}
+
+
+/*照片缩放*/
+.photoRange{
+	height: 60px;
+	width: 640px;
+	margin: 0 auto;
+}
+/*去除系统默认的样式*/
+input[type=range] {
+  -webkit-appearance: none;  /*太重要，改变元素看起来外观*/
+  width: 100%; 
+}
+
+/*给滑动轨道(track)添加样式；*/
+input[type=range]::-ms-track {
+  cursor: pointer;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  border-radius: 10px;
+}	
+input[type=range]::-webkit-slider-runnable-track:hover{
+	box-shadow: 0px 0px 20px #888888;
+}
+
+/*给滑块(thumb)添加样式*/
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid rgba(216, 215, 217,0.6);
+  height: 24px;
+  width: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+input[type=range]::-webkit-slider-thumb:hover{
+	background: rgba(222, 237, 239, 0.6);
+}
+
+/*原始的控件获取到焦点时，会显示包裹整个控件的边框，所以还需要把边框取消*/
+input[type=range]:focus {
+  outline: none; 
+}
+
+.inputRange{
+	background-color:transparent;/*background-color：transparent只是将背景设成透明的
+	opacity：0则是整个层都透明了，包括背景和里面的所有内容*/
+	border-radius: 6px;
+	border: 1px solid rgba(222, 237, 239, 0.6);
+}
+
+/*相框*/
+.photoFrameLeft, .photoFrameRight{
+	position: fixed;
+	top: 60px;
+	bottom: 170px;
+	width: 140px;
+	background: rgba(63, 66, 67, 0.6); 
+}
+
+.photoFrameLeft{
+	left: 0;
+}
+
+.photoFrameRight{
+	right: 0;
+}
+
+
+
+
+
+
+
+
